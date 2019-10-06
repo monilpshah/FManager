@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Add Notes
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content fullscreen>
+      <form>
+        <ion-list lines="full" class="ion-no-margin ion-no-padding">
+           <ion-item>
+              <ion-input  type="text" placeholder="Enter Title" style="font-weight: bold;"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-textarea rows="6" cols="20" placeholder="Enter any notes here..."></ion-textarea>
+              </ion-item>
+            
+            <div class="ion-padding">
+          <ion-button expand="block" type="submit" class="ion-no-margin">Add Note</ion-button>
+        </div>
+        </ion-list>
+      </form>
+    </ion-content>

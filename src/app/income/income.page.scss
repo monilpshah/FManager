@@ -1,0 +1,57 @@
+table {
+    font-family: "Helvetica Neue", Helvetica, sans-serif
+  }
+  
+  caption {
+    text-align: left;
+    color: silver;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px;
+  }
+  
+  thead {
+    background:darkgray;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  th,
+  td {
+    padding: 5px 10px;
+  }
+  
+  tbody tr:nth-child(even) {
+    background: WhiteSmoke;
+  } 
+  
+  tbody tr td:nth-child(1) {
+    font-family: monospace;
+    // font-size: 18px;
+  }
+
+  tbody tr th:nth-child(2){
+      font-weight: bold;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  tbody tr td:nth-child(2) {
+    text-align:center;
+  }
+  
+  tbody tr td:nth-child(3),
+  tbody tr td:nth-child(4) {
+    text-align: right;
+    font-family: monospace;
+  }
+  
+  tfoot {
+    background: darkgray;
+    color: black;
+    text-align: right;
+  }
+  
+  tfoot tr th:last-child {
+    font-family: monospace;
+  }
+  

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Notes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding>
+      <ion-item>
+        <ion-label>
+          <h3 style="color: black;">I'm a big deal</h3>
+          <p>Listen, I've had a pretty messed up dayadsfdgd sfsdvbc gsfzxdasfvbc</p>
+        </ion-label>
+        <ion-item-options side="start">
+            <ion-item-option color="primary">Edit</ion-item-option>
+          </ion-item-options>
+        <ion-item-options side="end">
+            <ion-item-option color="danger">Delete</ion-item-option>
+          </ion-item-options>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+      <ion-fab-button color="dark">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button color="light">
+          <ion-icon name="ios-download"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button color="light">
+          <ion-icon name="ios-exit"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button color="light">
+          <ion-icon name="ios-book"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+</ion-content>
