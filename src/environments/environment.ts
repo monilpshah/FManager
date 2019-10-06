@@ -5,6 +5,10 @@
 export const environment = {
   production: false
 };
+export const url = {
+  endpoint : 'https://fmanagerapi.herokuapp.com/'
+  // endpoint : 'http://localhost:3000/'
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
