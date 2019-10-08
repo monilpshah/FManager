@@ -17,11 +17,6 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
-    },
-    {
       title: 'Incomes',
       url: '/income',
       icon: 'list'
@@ -37,19 +32,9 @@ export class AppComponent {
       icon: 'list'
     },
     {
-      title: 'Add Notes',
-      url: '/add-note',
-      icon: 'list'
-    },
-    {
-      title: 'Edit Note',
-      url: '/edit-note',
-      icon: 'list'
-    },
-    {
-      title: 'Add Income / Expense',
-      url: '/add-income-expense',
-      icon: 'list'
+      title: 'Logout',
+      url: '/logout',
+      icon: 'log-out'
     }
   ];
 

@@ -10,6 +10,11 @@
 </ion-header>
 
 <ion-content fullscreen>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
   <table>
     <!-- <caption>Camping Costs</caption> -->
     <thead>
@@ -21,41 +26,21 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Tent</td>
+      <tr *ngFor="let income of income">
+        <td>{{income.remarks}}</td>
         <td>
-          <ion-icon ios="ios-create" md="md-create"></ion-icon>
+          <ion-icon ios="ios-create" md="md-create" (click)="editIncome(income.iid)"></ion-icon>
         </td>
         <td>
-          <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+          <ion-icon ios="ios-trash" md="md-trash" (click)="deleteIncome(income.iid)"></ion-icon>
         </td>
-        <td>₹279.00</td>
-      </tr>
-      <tr>
-        <td>Sleeping Bags</td>
-        <td>
-          <ion-icon ios="ios-create" md="md-create"></ion-icon>
-        </td>
-        <td>
-          <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-        </td>
-        <td>₹319.90</td>
-      </tr>
-      <tr>
-        <td>Camp Chairs</td>
-        <td>
-          <ion-icon ios="ios-create" md="md-create"></ion-icon>
-        </td>
-        <td>
-          <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-        </td>
-        <td>₹79.00</td>
+        <td>₹{{income.amount}}</td>
       </tr>
     </tbody>
     <tfoot>
       <tr>
         <th colspan="3">Grand Total</th>
-        <th>₹667.90</th>
+        <th>₹{{grandtotal}}</th>
       </tr>
     </tfoot>
   </table>
@@ -65,13 +50,13 @@
     </ion-fab-button>
     <ion-fab-list side="start">
       <ion-fab-button color="light">
-        <ion-icon name="ios-download"></ion-icon>
+        <ion-icon name="ios-download" (click)="onClickAddIncome()"></ion-icon>
       </ion-fab-button>
       <ion-fab-button color="light">
-        <ion-icon name="ios-exit"></ion-icon>
+        <ion-icon name="ios-exit" (click)="onClickAddExpense()"></ion-icon>
       </ion-fab-button>
       <ion-fab-button color="light">
-        <ion-icon name="ios-book"></ion-icon>
+        <ion-icon name="ios-book" (click)="onClickAddNote()"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>

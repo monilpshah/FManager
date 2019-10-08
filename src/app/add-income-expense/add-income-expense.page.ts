@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { expense } from '../Classes/expense';
+import { ExpenseService } from '../Services/expense.service';
+import { income } from '../Classes/income';
+import { IncomeService } from '../Services/income.service';
+import { UserService } from '../Services/user.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-add-income-expense',
@@ -7,9 +14,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddIncomeExpensePage implements OnInit {
 
-  constructor() { }
+  userid:number;
+  email:string;
+  type:string;
+  amount:number;
+  comments:string;
+  constructor(private _income:IncomeService,private _expense:ExpenseService,private _user:UserService,private _acroute:ActivatedRoute,private _route:Router) { }
 
   ngOnInit() {
+    this.userid=Number(localStorage.getItem('userid'));    
+    this.email=localStorage.getItem('email');
+  }
+  addRecord(){
+    if(this.type=="Income"){
+      this._income.addIncome(new income(0,this.userid,this.amount,this.comments,"")).subscribe(
+        (data:any)=>{
+          alert("Income has been added.");
+          this._route.navigate(['income']);
+        }
+      );
+    }
+    else{
+      this._expense.addExpense(new expense(0,this.userid,this.amount,this.comments,"")).subscribe(
+        (data:any)=>{
+          alert("Expense has been added.");
+          this._route.navigate(['expense']);
+        }
+      );
+    }
   }
 
 }

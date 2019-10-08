@@ -1,78 +1,62 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>
-        Expenses
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content fullscreen>
-    <table>
-      <!-- <caption>Camping Costs</caption> -->
-      <thead>
-        <tr>
-          <th>Comments</th>
-          <th>Edit</th>
-          <th>Delete</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Tent</td>
-          <td>
-            <ion-icon ios="ios-create" md="md-create"></ion-icon>
-          </td>
-          <td>
-            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-          </td>
-          <td>₹279.00</td>
-        </tr>
-        <tr>
-          <td>Sleeping Bags</td>
-          <td>
-            <ion-icon ios="ios-create" md="md-create"></ion-icon>
-          </td>
-          <td>
-            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-          </td>
-          <td>₹319.90</td>
-        </tr>
-        <tr>
-          <td>Camp Chairs</td>
-          <td>
-            <ion-icon ios="ios-create" md="md-create"></ion-icon>
-          </td>
-          <td>
-            <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
-          </td>
-          <td>₹79.00</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <th colspan="3">Grand Total</th>
-          <th>₹667.90</th>
-        </tr>
-      </tfoot>
-    </table>
-    <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
-      <ion-fab-button color="dark">
-        <ion-icon name="add"></ion-icon>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Expenses
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <table>
+    <!-- <caption>Camping Costs</caption> -->
+    <thead>
+      <tr>
+        <th>Comments</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let expense of expense">
+        <td>{{expense.remarks}}</td>
+        <td>
+          <ion-icon ios="ios-create" md="md-create" (click)="editExpense(expense.eid)"></ion-icon>
+        </td>
+        <td>
+          <ion-icon ios="ios-trash" md="md-trash" (click)="deleteExpense(expense.eid)"></ion-icon>
+        </td>
+        <td>₹{{expense.amount}}</td>
+      </tr>
+    <tfoot>
+      <tr>
+        <th colspan="3">Grand Total</th>
+        <th>₹{{grandtotal}}</th>
+      </tr>
+    </tfoot>
+  </table>
+  <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
+    <ion-fab-button color="dark">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button color="light">
+        <ion-icon name="ios-download" (click)="onClickAddIncome()"></ion-icon>
       </ion-fab-button>
-      <ion-fab-list side="start">
-        <ion-fab-button color="light">
-          <ion-icon name="ios-download"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button color="light">
-          <ion-icon name="ios-exit"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button color="light">
-          <ion-icon name="ios-book"></ion-icon>
-        </ion-fab-button>
-      </ion-fab-list>
-    </ion-fab>
-  </ion-content>
+      <ion-fab-button color="light">
+        <ion-icon name="ios-exit" (click)="onClickAddExpense()"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light">
+        <ion-icon name="ios-book" (click)="onClickAddNote()"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

@@ -12,7 +12,7 @@ export class IncomeService {
   private incomeone: string = url.endpoint + 'incomeone/';
 
   constructor(private _http:HttpClient) { }
-  getIncomeByFkuserid(fkuserid){
+  getIncomeByFkuserid(fkuserid){    
     return this._http.get(this.incomeone+fkuserid);
   }
   getIncomeByIid(iid){

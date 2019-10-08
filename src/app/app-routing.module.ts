@@ -19,8 +19,13 @@ const routes: Routes = [
   { path: 'add-income-expense', loadChildren: './add-income-expense/add-income-expense.module#AddIncomeExpensePageModule' },
   { path: 'expense', loadChildren: './expense/expense.module#ExpensePageModule' },
   { path: 'note', loadChildren: './note/note.module#NotePageModule' },
-  { path: 'edit-note', loadChildren: './edit-note/edit-note.module#EditNotePageModule' },
-  { path: 'add-note', loadChildren: './add-note/add-note.module#AddNotePageModule' }
+  { path: 'edit-note/:nid', loadChildren: './edit-note/edit-note.module#EditNotePageModule' },
+  { path: 'add-note', loadChildren: './add-note/add-note.module#AddNotePageModule' },
+  { path: 'edit-income-expense/:ieid/:type', loadChildren: './edit-income-expense/edit-income-expense.module#EditIncomeExpensePageModule' },
+  { path: 'logout', loadChildren: './logout/logout.module#LogoutPageModule' },
+  { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },
+  { path: 'forgot-password', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule' },
+  { path: 'edit-profile', loadChildren: './edit-profile/edit-profile.module#EditProfilePageModule' }
 ];
 
 @NgModule({

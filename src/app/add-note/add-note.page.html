@@ -13,15 +13,15 @@
       <form>
         <ion-list lines="full" class="ion-no-margin ion-no-padding">
            <ion-item>
-              <ion-input  type="text" placeholder="Enter Title" style="font-weight: bold;"></ion-input>
+              <ion-input  type="text" placeholder="Enter Title" style="font-weight: bold;" name="title" [(ngModel)]="title"></ion-input>
             </ion-item>
             
             <ion-item>
-                <ion-textarea rows="6" cols="20" placeholder="Enter any notes here..."></ion-textarea>
+                <ion-textarea rows="6" cols="20" placeholder="Enter any notes here..." name="note" [(ngModel)]="note"></ion-textarea>
               </ion-item>
             
             <div class="ion-padding">
-          <ion-button expand="block" type="submit" class="ion-no-margin">Add Note</ion-button>
+          <ion-button expand="block" type="submit" class="ion-no-margin" (click)="addnote()">Add Note</ion-button>
         </div>
         </ion-list>
       </form>
