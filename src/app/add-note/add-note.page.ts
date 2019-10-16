@@ -3,6 +3,7 @@ import { note } from '../Classes/note';
 import { NoteService } from '../Services/note.service';
 import { UserService } from '../Services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -15,9 +16,10 @@ export class AddNotePage implements OnInit {
   note:string;
   userid: number;
   email: string;  
-  constructor(private _note: NoteService, private _user: UserService, private _acroute: ActivatedRoute, private _route: Router) { }
+  constructor(public loadingController: LoadingController,private _note: NoteService, private _user: UserService, private _acroute: ActivatedRoute, private _route: Router) { }
 
   ngOnInit() {
+    this.presentLoadingWithOptions(4000);
     this.userid = Number(localStorage.getItem('userid'));
     this.email = localStorage.getItem('email');
   }
@@ -29,5 +31,14 @@ export class AddNotePage implements OnInit {
       }
     );
   }
-
+  async presentLoadingWithOptions(ms) {
+    const loading = await this.loadingController.create({
+      spinner: null,
+      duration: ms,
+      message: 'Loading...',
+      translucent: true,
+      cssClass: 'custom-class custom-loading'
+    });
+    return await loading.present();
+  }
 }

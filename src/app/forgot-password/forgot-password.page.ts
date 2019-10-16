@@ -3,6 +3,7 @@ import { UserService } from '../Services/user.service';
 import { Router } from '@angular/router';
 import { ForgotPasswordService } from '../Services/forgot-password.service';
 import { forgotpassword } from '../Classes/forgotPassword';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-forgot-password',
@@ -13,9 +14,10 @@ export class ForgotPasswordPage implements OnInit {
 
   email: string;
   password: string;
-  constructor(private _user: UserService, private _route: Router, private _forgotpassword: ForgotPasswordService) { }
+  constructor(public loadingController: LoadingController,private _user: UserService, private _route: Router, private _forgotpassword: ForgotPasswordService) { }
 
   ngOnInit() {
+    this.presentLoadingWithOptions(4000);
   }
   onforget() {
     this._user.getUserByEmail(this.email).subscribe(
@@ -36,5 +38,20 @@ export class ForgotPasswordPage implements OnInit {
       }
     );
   }
-
+  signup(){
+    this._route.navigate(['signup']);
+  }
+  login(){
+    this._route.navigate(['home']);
+  }
+  async presentLoadingWithOptions(ms) {
+    const loading = await this.loadingController.create({
+      spinner: null,
+      duration: ms,
+      message: 'Loading...',
+      translucent: true,
+      cssClass: 'custom-class custom-loading'
+    });
+    return await loading.present();
+  }
 }

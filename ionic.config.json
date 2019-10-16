@@ -1,5 +1,7 @@
 {
   "name": "FManager",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

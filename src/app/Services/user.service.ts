@@ -14,7 +14,7 @@ export class UserService {
 
   constructor(private _http:HttpClient) { }
   getUserByUserid(userid){
-    return this._http.get(this.userone+userid);
+    return this._http.get(this.user+userid);
   }
   getUserByEmail(email){
     return this._http.get(this.userone+email);

@@ -1,9 +1,49 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>editProfile</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Edit Profile
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
-
 <ion-content>
-
+    <!-- main -->
+    <div class="w3layouts-main">
+        <div class="bg-layer">
+            <div class="header-main">
+                <div class="main-icon">
+                    <span class="fa fa-eercast"></span>
+                </div>
+                <div class="header-left-bottom">
+                    <form action="#" method="post">
+                        <div class="icon1">
+                            <span class="fa fa-user"></span>
+                            <input type="email" placeholder="Email Address" name="email" [(ngModel)]="email" required="" />
+                        </div>
+                        <div class="icon1">
+                            <span class="fa fa-lock"></span>
+                            <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required="" />
+                        </div>
+                        <div class="icon1">
+                            <span class="fa fa-user"></span>
+                            <input type="text" placeholder="Name" name="name" [(ngModel)]="name" required="" />
+                        </div>
+                        <div class="icon1">
+                            <span class="fa fa-user"></span>
+                            <input type="number" placeholder="Phone Number" name="phone" [(ngModel)]="phone" required="" />
+                        </div>
+                        <!-- <div class="login-check">
+             <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Keep me logged in</label>
+          </div> -->
+                        <div class="bottom" (click)="save()">
+                            <button class="btn">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //main -->
 </ion-content>

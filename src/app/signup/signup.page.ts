@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { user } from '../Classes/user';
 import { UserService } from '../Services/user.service';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-signup',
@@ -16,9 +17,10 @@ export class SignupPage implements OnInit {
   user: user;
   name:string;
   phone:number;
-  constructor(private _user: UserService, private _route: Router) { }
+  constructor(public loadingController: LoadingController,private _user: UserService, private _route: Router) { }
 
   ngOnInit() {
+    this.presentLoadingWithOptions(4000);
   }
   signup(){
     this._user.getUserByEmail(this.email).subscribe(
@@ -38,5 +40,20 @@ export class SignupPage implements OnInit {
       }
     );
   }
-
+  forgotPassword(){
+    this._route.navigate(['forgot-password']);
+  }
+  login(){
+    this._route.navigate(['home']);
+  }
+  async presentLoadingWithOptions(ms) {
+    const loading = await this.loadingController.create({
+      spinner: null,
+      duration: ms,
+      message: 'Loading...',
+      translucent: true,
+      cssClass: 'custom-class custom-loading'
+    });
+    return await loading.present();
+  }
 }

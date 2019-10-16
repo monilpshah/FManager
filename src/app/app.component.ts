@@ -32,6 +32,11 @@ export class AppComponent {
       icon: 'list'
     },
     {
+      title: 'Edit Profile',
+      url: '/edit-profile',
+      icon: 'person'
+    },
+    {
       title: 'Logout',
       url: '/logout',
       icon: 'log-out'

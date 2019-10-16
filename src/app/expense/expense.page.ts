@@ -20,6 +20,7 @@ export class ExpensePage implements OnInit {
   grandtotal: number = 0;
   i: number = 0;
   ngOnInit() {
+    this.presentLoadingWithOptions(5000);
     this.userid = Number(localStorage.getItem('userid'));
     this.email = localStorage.getItem('email');
     this.grandtotal=0;
@@ -65,5 +66,15 @@ export class ExpensePage implements OnInit {
       event.target.complete();
     }, 2000);
     this.ngOnInit();
+  }
+  async presentLoadingWithOptions(ms) {
+    const loading = await this.loadingController.create({
+      spinner: null,
+      duration: ms,
+      message: 'Loading...',
+      translucent: true,
+      cssClass: 'custom-class custom-loading'
+    });
+    return await loading.present();
   }
 }

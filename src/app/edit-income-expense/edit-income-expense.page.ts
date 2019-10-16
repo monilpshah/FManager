@@ -5,6 +5,7 @@ import { income } from '../Classes/income';
 import { IncomeService } from '../Services/income.service';
 import { UserService } from '../Services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-edit-income-expense',
@@ -19,9 +20,10 @@ export class EditIncomeExpensePage implements OnInit {
   type:string;
   amount:number;
   comments:string;
-  constructor(private _income:IncomeService,private _expense:ExpenseService,private _user:UserService,private _acroute:ActivatedRoute,private _route:Router) { }
+  constructor(public loadingController: LoadingController,private _income:IncomeService,private _expense:ExpenseService,private _user:UserService,private _acroute:ActivatedRoute,private _route:Router) { }
 
   ngOnInit() {
+    this.presentLoadingWithOptions(4000);
     this.ieid=this._acroute.snapshot.params['ieid'];
     this.type=this._acroute.snapshot.params['type'];
     this.userid=Number(localStorage.getItem('userid'));    
@@ -66,5 +68,15 @@ export class EditIncomeExpensePage implements OnInit {
     else{
       alert("Please Select valid type");
     }
+  }
+  async presentLoadingWithOptions(ms) {
+    const loading = await this.loadingController.create({
+      spinner: null,
+      duration: ms,
+      message: 'Loading...',
+      translucent: true,
+      cssClass: 'custom-class custom-loading'
+    });
+    return await loading.present();
   }
 }
