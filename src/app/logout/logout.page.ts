@@ -13,7 +13,7 @@ export class LogoutPage implements OnInit {
   constructor(public loadingController: LoadingController,private _acroute: ActivatedRoute, private _route: Router) { }
 
   ngOnInit() {
-    this.presentLoadingWithOptions(4000);
+    this.presentLoadingWithOptions(1250);
     localStorage.setItem('userid','');
     localStorage.setItem('email','');
     this._route.navigate(['home']);

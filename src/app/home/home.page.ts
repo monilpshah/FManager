@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { user } from '../Classes/user';
 import { UserService } from '../Services/user.service';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class HomePage {
   password: string;
   userid: number;
   user: user;
-  constructor(private _user: UserService, private _route: Router) { }
+  constructor(public loadingController: LoadingController,private _user: UserService, private _route: Router) { }
   ngOnInit() {
 
   }
@@ -26,8 +27,9 @@ export class HomePage {
           if (data[0].password == this.password) {
             localStorage.setItem('email', this.email);
             localStorage.setItem('userid', data[0].userid);
+            this.presentLoadingWithOptions(2000);
             alert("Login Successful.");
-            this._route.navigate(['income']);
+            this._route.navigate(['homepage']);
           }
           else{
             alert("Wrong Password. Please Try Again.");
@@ -44,5 +46,15 @@ export class HomePage {
   }
   forgotPassword(){
     this._route.navigate(['forgot-password']);
+  }
+  async presentLoadingWithOptions(ms) {
+    const loading = await this.loadingController.create({
+      spinner: null,
+      duration: ms,
+      message: 'Loading...',
+      translucent: true,
+      cssClass: 'custom-class custom-loading'
+    });
+    return await loading.present();
   }
 }

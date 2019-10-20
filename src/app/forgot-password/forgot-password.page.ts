@@ -17,26 +17,30 @@ export class ForgotPasswordPage implements OnInit {
   constructor(public loadingController: LoadingController,private _user: UserService, private _route: Router, private _forgotpassword: ForgotPasswordService) { }
 
   ngOnInit() {
-    this.presentLoadingWithOptions(4000);
+    this.presentLoadingWithOptions(1250);
   }
   onforget() {
-    this._user.getUserByEmail(this.email).subscribe(
-      (data: any) => {
-        if (data.length > 0) {
-          this.password = data[0].password;
-          this._forgotpassword.sendmail(new forgotpassword(this.email, "FManager Password", "Your Password Is : " + this.password)).subscribe(
-            (data: forgotpassword[]) => {
-              console.log(data);
-            }
-          );
-          alert("Password sent.");
-          this._route.navigate(['home']);
+    if(this.email==""){
+      alert("Please enter valid Email.")
+    }else{
+      this._user.getUserByEmail(this.email).subscribe(
+        (data: any) => {
+          if (data.length > 0) {
+            this.password = data[0].password;
+            this._forgotpassword.sendmail(new forgotpassword(this.email, "FManager Password", "Your Password Is : " + this.password)).subscribe(
+              (data: forgotpassword[]) => {
+                console.log(data);
+              }
+            );
+            alert("Password sent.");
+            this._route.navigate(['home']);
+          }
+          else {
+            alert("This Email Id is not valid. Please Enter registered Email Id. ");
+          }
         }
-        else {
-          alert("This Email Id is not valid. Please Enter registered Email Id. ");
-        }
-      }
-    );
+      );
+    }
   }
   signup(){
     this._route.navigate(['signup']);

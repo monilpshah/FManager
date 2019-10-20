@@ -20,7 +20,7 @@ export class ExpensePage implements OnInit {
   grandtotal: number = 0;
   i: number = 0;
   ngOnInit() {
-    this.presentLoadingWithOptions(5000);
+    this.presentLoadingWithOptions(1250);
     this.userid = Number(localStorage.getItem('userid'));
     this.email = localStorage.getItem('email');
     this.grandtotal=0;

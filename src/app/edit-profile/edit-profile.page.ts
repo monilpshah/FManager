@@ -19,7 +19,7 @@ export class EditProfilePage implements OnInit {
   phone:number;
   ngOnInit() {
     this.userid=Number(localStorage.getItem('userid'));
-    this.presentLoadingWithOptions(4000);
+    this.presentLoadingWithOptions(1250);
     this._user.getUserByUserid(this.userid).subscribe(
       (data:any)=>{
         console.log(data);
@@ -31,12 +31,26 @@ export class EditProfilePage implements OnInit {
     );
   }
   save(){
-    this._user.updateUser(new user(this.userid,this.email,this.password,this.name,this.phone,"")).subscribe(
-      (data:any)=>{
-        alert("Profile Updated.");
-        this._route.navigate(['login']);
-      }
-    );
+    if(this.email==""){
+      alert("Please enter valid Email.")
+    }
+    else if(this.password==""){
+      alert("Please enter valid Password.")
+    }
+    else if(this.name==""){
+      alert("Please enter valid Name.")
+    }
+    else if(this.phone==null){
+      alert("Please enter valid Phone Number.")
+    }
+    else{
+      this._user.updateUser(new user(this.userid,this.email,this.password,this.name,this.phone,"")).subscribe(
+        (data:any)=>{
+          alert("Profile Updated.");
+          this._route.navigate(['login']);
+        }
+      );
+    }
   }
   async presentLoadingWithOptions(ms) {
     const loading = await this.loadingController.create({

@@ -19,7 +19,7 @@ export class AddNotePage implements OnInit {
   constructor(public loadingController: LoadingController,private _note: NoteService, private _user: UserService, private _acroute: ActivatedRoute, private _route: Router) { }
 
   ngOnInit() {
-    this.presentLoadingWithOptions(4000);
+    this.presentLoadingWithOptions(1250);
     this.userid = Number(localStorage.getItem('userid'));
     this.email = localStorage.getItem('email');
   }

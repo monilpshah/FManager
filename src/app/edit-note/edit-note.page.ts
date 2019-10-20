@@ -19,7 +19,7 @@ export class EditNotePage implements OnInit {
   note:string;
   title:string;
   ngOnInit() {
-    this.presentLoadingWithOptions(4000);
+    this.presentLoadingWithOptions(1250);
     this.userid = Number(localStorage.getItem('userid'));
     this.email = localStorage.getItem('email');
     this.nid=this._acroute.snapshot.params['nid'];

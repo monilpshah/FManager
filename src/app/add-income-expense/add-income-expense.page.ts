@@ -18,16 +18,19 @@ export class AddIncomeExpensePage implements OnInit {
   userid:number;
   email:string;
   type:string;
-  amount:number;
+  amount:number=0;
   comments:string;
   constructor(public loadingController: LoadingController,private _income:IncomeService,private _expense:ExpenseService,private _user:UserService,private _acroute:ActivatedRoute,private _route:Router) { }
 
   ngOnInit() {
-    this.presentLoadingWithOptions(4000);
+    this.presentLoadingWithOptions(1250);
     this.userid=Number(localStorage.getItem('userid'));    
     this.email=localStorage.getItem('email');
   }
   addRecord(){
+    if(this.comments==''){
+      alert("Please enter comments.");
+    }
     if(this.type=="Income"){
       this._income.addIncome(new income(0,this.userid,this.amount,this.comments,"")).subscribe(
         (data:any)=>{
@@ -36,13 +39,16 @@ export class AddIncomeExpensePage implements OnInit {
         }
       );
     }
-    else{
+    else if (this.type=="Expense"){
       this._expense.addExpense(new expense(0,this.userid,this.amount,this.comments,"")).subscribe(
         (data:any)=>{
           alert("Expense has been added.");
           this._route.navigate(['expense']);
         }
       );
+    }
+    else{
+      alert("Please select valid type");
     }
   }
   async presentLoadingWithOptions(ms) {

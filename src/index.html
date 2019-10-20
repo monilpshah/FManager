@@ -2,44 +2,68 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Ionic App</title>
+    <meta charset="utf-8" />
+    <title>Ionic App</title>
 
-  <base href="/" />
+    <base href="/" />
 
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
 
-  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+    <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
 
-  <!-- add to homescreen for ios -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- add to homescreen for ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-   <!-- Login Page CODE -->
-   <script>
-    addEventListener("load", function () {
-        setTimeout(hideURLbar, 0);
-    }, false);
+    <!-- Login Page CODE -->
+    <script>
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    }
-</script>
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-<!-- Custom Theme files -->
-<link href="assets/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="assets/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
-<!-- //Custom Theme files -->
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Home page template -->
+    <!--js working-->
+    <script src='./assets/js/jquery-2.2.3.min.js'></script>
+    <!--//js working-->
+    <script src="./assets/js/script.js"></script>
 
-<!-- web font -->
-<link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
-<!-- //web font -->
-  <!-- Login Page CODE ends -->
+    <link href="./assets/css/style.css" rel='stylesheet' type='text/css' media="all">
+    <!--//style sheet end here-->
+    <link href="//fonts.googleapis.com/css?family=Catamaran:400,500,600,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
+
+
+
+
+    <!-- Home page template -->
+    <!-- Custom Theme files -->
+    <link href="assets/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="assets/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- //Custom Theme files -->
+
+    <!-- web font -->
+    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+    <!-- //web font -->
+    <!-- Login Page CODE ends -->
 </head>
+
 <body>
-  <app-root></app-root>
+    <app-root></app-root>
 </body>
 
 </html>

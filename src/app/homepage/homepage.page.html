@@ -1,9 +1,63 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>homepage</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Home
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+    <!-- <h1 class="header-w3ls">
+        Style Calculator Widget
+     </h1> -->
+    <div id="base">
+        <div id="main">
+            <div class="calculator-gide" id="header">
+                <div class="noselect" id="name">Calculator</div>
+                <!-- <div class="noselect" id="menu">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div> -->
+            </div>
+            <div class="calculator-gide" id="clear-container">
+                <div class="noselect" id="delete" onclick="backspace()">⇦</div>
+                <div class="noselect" id="clear" onclick="c()">CLEAR</div>
+            </div>
+            <div class="calculator-gide" id="result-container">
+                <div id="result"></div>
+            </div>
+            <div class="calculator-gide noselect" id="op-container">
+                <div class="op" id="plus" onclick="insert('+')">+</div>
+                <div class="op" id="minus" onclick="insert('−')">−</div>
+                <div class="op" id="multiply" onclick="insert('*')">×</div>
+                <div class="op" id="divide" onclick="insert('/')">÷</div>
+            </div>
+            <div class="calculator-gide" id="eq-container">
+                <div class="" id="equal" onclick="findAns()">=</div>
+            </div>
+        </div>
+        <div id="num" class="noselect">
+            <div class="num-button" id="nine" onclick="insert('9')">9</div>
+            <div class="num-button" id="eight" onclick="insert('8')">8</div>
+            <div class="num-button" id="seven" onclick="insert('7')">7</div>
+            <div class="num-button" id="six" onclick="insert('6')">6</div>
+            <div class="num-button" id="five" onclick="insert('5')">5</div>
+            <div class="num-button" id="four" onclick="insert('4')">4</div>
+            <div class="num-button" id="three" onclick="insert('3')">3</div>
+            <div class="num-button" id="two" onclick="insert('2')">2</div>
+            <div class="num-button" id="one" onclick="insert('1')">1</div>
+            <div class="num-button" id="zero" onclick="insert('0')">0</div>
+            <div class="num-button" id="decimal" onclick="insert('.')">.</div>
+        </div>
+    </div>
+    <!-- <div class="copy"> -->
+    <p><a>W3Layouts</a>
+    </p>
+    <!-- </div> -->
 
 </ion-content>

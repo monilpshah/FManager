@@ -26,7 +26,8 @@ const routes: Routes = [
   { path: 'signup', loadChildren: './signup/signup.module#SignupPageModule' },
   { path: 'forgot-password', loadChildren: './forgot-password/forgot-password.module#ForgotPasswordPageModule' },
   { path: 'edit-profile', loadChildren: './edit-profile/edit-profile.module#EditProfilePageModule' },
-  { path: 'homepage', loadChildren: './homepage/homepage.module#HomepagePageModule' }
+  { path: 'homepage', loadChildren: './homepage/homepage.module#HomepagePageModule' },
+  { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule' }
 ];
 
 @NgModule({

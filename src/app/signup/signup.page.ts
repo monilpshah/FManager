@@ -23,22 +23,36 @@ export class SignupPage implements OnInit {
     this.presentLoadingWithOptions(4000);
   }
   signup(){
-    this._user.getUserByEmail(this.email).subscribe(
-      (data:any)=>{
-        if(data.length>0){
-          alert("You are registered user. Please Login");
+    if(this.email==""){
+      alert("Please enter valid Email.");
+    }
+    else if(this.password==""){
+      alert("Please enter valid password.");
+    }
+    else if(this.name==""){
+      alert("Please enter valid name.");
+    }
+    else if(this.phone==null){
+      alert("Please enter valid phone");
+    }
+    else{
+      this._user.getUserByEmail(this.email).subscribe(
+        (data:any)=>{
+          if(data.length>0){
+            alert("You are registered user. Please Login");
+          }
+          else{
+            this._user.addUser(new user(0,this.email,this.password,this.name,this.phone,"")).subscribe(
+              (data:any)=>{
+                console.log(data);
+                alert("Registration complete.Please Login");
+                this._route.navigate(['home']);
+              }
+            );
+          }
         }
-        else{
-          this._user.addUser(new user(0,this.email,this.password,this.name,this.phone,"")).subscribe(
-            (data:any)=>{
-              console.log(data);
-              alert("Registration complete.Please Login");
-              this._route.navigate(['home']);
-            }
-          );
-        }
-      }
-    );
+      );
+    }
   }
   forgotPassword(){
     this._route.navigate(['forgot-password']);

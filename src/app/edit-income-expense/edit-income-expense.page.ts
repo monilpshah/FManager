@@ -23,7 +23,7 @@ export class EditIncomeExpensePage implements OnInit {
   constructor(public loadingController: LoadingController,private _income:IncomeService,private _expense:ExpenseService,private _user:UserService,private _acroute:ActivatedRoute,private _route:Router) { }
 
   ngOnInit() {
-    this.presentLoadingWithOptions(4000);
+    this.presentLoadingWithOptions(1250);
     this.ieid=this._acroute.snapshot.params['ieid'];
     this.type=this._acroute.snapshot.params['type'];
     this.userid=Number(localStorage.getItem('userid'));    
@@ -49,6 +49,9 @@ export class EditIncomeExpensePage implements OnInit {
     }
   }
   saveRecord(){
+    if(this.comments==""){
+      alert("Please enter comments.");
+    }
     if(this.type=="Income"){
       this._income.updateIncome(new income(this.ieid,this.userid,this.amount,this.comments,"")).subscribe(
         (data:any)=>{
