@@ -21,13 +21,13 @@ export class HomePage {
 
   }
   login() {
+    this.presentLoadingWithOptions(2000);
     this._user.getUserByEmail(this.email).subscribe(
       (data: any) => {
         if (data.length == 1) {
           if (data[0].password == this.password) {
             localStorage.setItem('email', this.email);
             localStorage.setItem('userid', data[0].userid);
-            this.presentLoadingWithOptions(2000);
             alert("Login Successful.");
             this._route.navigate(['homepage']);
           }

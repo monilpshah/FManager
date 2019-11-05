@@ -11,12 +11,12 @@ import { LoadingController } from '@ionic/angular';
 })
 export class SignupPage implements OnInit {
 
-  email: string;
-  password: string;
+  email: string="";
+  password: string="";
   userid: number;
   user: user;
-  name:string;
-  phone:number;
+  name:string="";
+  phone:number=null;
   constructor(public loadingController: LoadingController,private _user: UserService, private _route: Router) { }
 
   ngOnInit() {

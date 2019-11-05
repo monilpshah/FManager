@@ -1,42 +1,41 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Notes
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Notes
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
-      refreshingText="Refreshing...">
-    </ion-refresher-content>
-  </ion-refresher>
-  <ion-list>    
-      <ion-item *ngFor="let item of note">
-        <ion-label (click)="onClickEditNote(item.nid)">
-          <h3 style="color: black;">{{item.title}}</h3>
-          <p>{{item.note}}</p>
-        </ion-label>        
-      </ion-item>    
-  </ion-list>
-  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
-    <ion-fab-button color="dark">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button color="light">
-        <ion-icon name="ios-download" (click)="onClickAddIncome()"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="light">
-        <ion-icon name="ios-exit" (click)="onClickAddExpense()"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button color="light">
-        <ion-icon name="ios-book" (click)="onClickAddNote()"></ion-icon>
-      </ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-list>
+        <ion-item *ngFor="let item of note">
+            <ion-label (click)="onClickEditNote(item.nid)">
+                <h3 style="color: black;">{{item.title}}</h3>
+                <p>{{item.note}}</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+        <ion-fab-button color="dark">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+            <ion-fab-button color="light" (click)="onClickAddIncome()">
+                <ion-icon name="ios-download"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="light" (click)="onClickAddExpense()">
+                <ion-icon name="ios-exit"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="light" (click)="onClickAddNote()">
+                <ion-icon name="ios-book"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+    </ion-fab>
 </ion-content>

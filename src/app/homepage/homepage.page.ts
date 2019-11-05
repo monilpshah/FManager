@@ -11,7 +11,7 @@ export class HomepagePage implements OnInit {
   constructor(public loadingController: LoadingController) { }
 
   ngOnInit() {
-    this.presentLoadingWithOptions(1250);
+    // this.presentLoadingWithOptions(1250);
   }
   async presentLoadingWithOptions(ms) {
     const loading = await this.loadingController.create({
