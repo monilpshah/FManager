@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { url } from '../../environments/environment';
-import { user } from '../Classes/user';
 
 
 @Injectable({
@@ -9,8 +7,10 @@ import { user } from '../Classes/user';
 })
 export class UserService {
 
-  private user: string = url.endpoint + 'user/';
-  private userone: string = url.endpoint + 'userone/';
+  endpoint : 'https://fmanagerapi.herokuapp.com/'
+  // endpoint : 'http://localhost:3000/'
+  private user: string = this.endpoint + 'user/';
+  private userone: string = this.endpoint + 'userone/';
 
   constructor(private _http:HttpClient) { }
   getUserByUserid(userid){

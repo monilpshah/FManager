@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { url } from '../../environments/environment';
-import { note } from '../Classes/note';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoteService {
-
-  private note: string = url.endpoint + 'note/';
-  private noteone: string = url.endpoint + 'noteone/';
+  endpoint : 'https://fmanagerapi.herokuapp.com/'
+  // endpoint : 'http://localhost:3000/'
+  private note: string = this.endpoint + 'note/';
+  private noteone: string = this.endpoint + 'noteone/';
 
   constructor(private _http:HttpClient) { }
   getNoteByFkuserid(fkuserid){    

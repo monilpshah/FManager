@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { url } from '../../environments/environment';
-import { income } from '../Classes/income';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IncomeService {
 
-  private income: string = url.endpoint + 'income/';
-  private incomeone: string = url.endpoint + 'incomeone/';
+  endpoint : 'https://fmanagerapi.herokuapp.com/'
+  // endpoint : 'http://localhost:3000/'
+  private income: string = this.endpoint + 'income/';
+  private incomeone: string = this.endpoint + 'incomeone/';
 
   constructor(private _http:HttpClient) { }
   getIncomeByFkuserid(fkuserid){    

@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { url } from '../../environments/environment';
-import { expense } from '../Classes/expense';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExpenseService {
-
-  private expense: string = url.endpoint + 'expense/';
-  private expenseone: string = url.endpoint + 'expenseone/';
+  endpoint : 'https://fmanagerapi.herokuapp.com/'
+  // endpoint : 'http://localhost:3000/'
+  private expense: string = this.endpoint + 'expense/';
+  private expenseone: string = this.endpoint + 'expenseone/';
 
   constructor(private _http:HttpClient) { }
   getExpenseByFkuserid(fkuserid){    
